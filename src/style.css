@@ -1,0 +1,41 @@
+div { font-family: 'Myriad Web', Arial, Helvetica, sans-serif; }
+table { font-size: 0.8em; }
+td, label input { vertical-align: middle; }
+label input { position: relative; bottom: +0.15em }
+label span, td.dblabel, td.slabel { line-height: 2em }
+.fill { width: 100%; height: 100%; max-width:12em }
+div.logo { 
+  float:right;
+  height: 1.25em; 
+  overflow: visible;
+  position: relative;
+  left: 0.3em;
+}
+td.dblabel {
+  width: 3em;
+  text-align: right;
+  padding-right: 0.5em;
+}
+td.slider {
+  align: left;
+  padding-top: 0.25em;
+}
+td.sep {
+  height: 2em;
+  text-align: left;
+  font-size: 1.25em;
+  font-weight: bold;
+}
+td.sep2 {
+  vertical-align: bottom;
+}
+td.sep0 {
+  text-align: left;
+  font-size: 1.25em;
+  font-weight: bold;
+}
+.buttonrow {
+  text-align: right;
+  padding: 0.25em;
+}
+

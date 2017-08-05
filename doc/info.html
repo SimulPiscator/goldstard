@@ -1,0 +1,71 @@
+<html>
+<head>
+<title>RPi-Goldstar Info</title>
+</head>
+
+<h1>Hardware</h1>
+<ul>
+<li><a href='/doc/ffh-212.pdf'>Goldstar FFH-212</a> micro-hifi system, ca. 1992</br>
+audio controls through a <a href='/doc/TDA7318.pdf'>TDA7318<a>
+integrated amplifier circuit</br>
+5V microcontroller power available in stand-by mode
+<ul>
+<li>implemented through 7805 linear voltage regulator
+<li>can deliver up to 1.5A with appropriate heat sink
+</ul>
+<li>Raspberry Pi model B</br>
+ARMv6 running at 850MHz</br>
+496MB RAM available</br>
+integrated 11bit PWM stereo audio</br>
+Edimax low-power Wi-Fi dongle</br>
+<li>RPi <a href='/doc/schematics.pdf'>integration</a>
+<ul>
+<li>physically replaces tape deck mechanism, accessible through tape lid</br>
+<li>powered from stand-by power</br>
+<li>controls audio through I2C connection to TDA7318
+<li>controls power and CD through IR LED mounted above remote sensor</br>
+Linux IR Control Daemon (lircd)</br>
+</ul>
+<li>MPlayer2 in slave mode plays audio from network
+<li>Audio quality</br>
+FFH-212 CD player dynamic range specified as 68dB = 11bit,
+matching RPi PWM output</br>
+audio power specified as 2x15W RMS at 10% THD,
+acceptable for video playback purpose</br>
+</ul>
+<h1>GUI control interface</h1>
+<ul>
+<li>Served as an <a target='_blank' href='/'>interactive web page</a>
+<li>Written in C++ using Wt web application library
+<li>Requires a HTML5 browser with JavaScript enabled
+<li>Designed to fit a smart phone screen
+<li>Allows multiple synchronous control sessions
+</ul>
+<h1>HTTP control interface</h1>
+<ul>
+<li>
+<a target='_blank' href='/state'>
+<tt>/state</tt></a></br>
+Output is plain text listing all state variables and their values.
+<li>
+<a target='_blank' href='/control?Power=0'>
+<tt>/control?Power=0</tt></a></br>
+<a target='_blank' href='/control?Power=1'>
+<tt>/control?Power=1</tt></a></br>
+Switch power on or off.</br>
+Cannot be combined with control of other state variables.</br>
+Power state change requires a few seconds to complete,
+and no control requests are accepted during that time.</br>
+<li>
+<a target='_blank' href='/control?Source=CD&GainCD=0&VolumeL=-36&VolumeR=-36'>
+<tt>/control?Source=CD&GainCD=0&VolumeL=-36&VolumeR=-36</tt></a></br>
+Changes state variables according to parameters.</br>
+Parameters and their values are case sensitive.</br>
+Requests will be ignored while power is off, and while power state is being changed.</br>
+Output is "1" or "0" indicating whether request was accepted, or ignored.</br>
+</ul>
+<h1>Source code</h1>
+<ul>
+<li>as a <a href='/src.tgz'>tgz archive</a> (including docs, ca. 20MB)
+</ul>
+</html>

@@ -1,0 +1,5 @@
+docroot=/usr/local/src/goldstard
+approot=/usr/local/src/goldstard
+config=/usr/local/src/goldstard/etc/wt_config.xml
+http-address=0.0.0.0
+http-port=80
